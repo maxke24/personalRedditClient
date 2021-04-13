@@ -10,9 +10,13 @@ async function getRedditPosts(subreddit, sort = undefined) {
 	return await rs.data.children;
 }
 
-async function getSubReddit(name) {
-	let url = `https://www.reddit.com/api/search_reddit_names.json?query=${name}`;
-	fetch(url).then((response) => {
-		console.log(response);
-	});
+async function getSubReddit(ev) {
+	ev.preventDefault();
+	let input = document.querySelector("input");
+	const name = input.value;
+	input.value = "";
+	const url = `https://www.reddit.com/api/search_reddit_names.json?query=${name}`;
+	const response = await fetch(url);
+	const rs = await response.json();
+	console.log(rs);
 }

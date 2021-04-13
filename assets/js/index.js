@@ -2,7 +2,8 @@
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-	fillRedditPosts("ProgrammerHumor", "hot");
+	fillRedditPosts("aww");
+	document.querySelector("form").addEventListener("submit", getSubReddit);
 }
 
 async function fillRedditPosts(subreddit, sort) {
@@ -10,9 +11,12 @@ async function fillRedditPosts(subreddit, sort) {
 	const posts = await getRedditPosts(subreddit);
 	for (let post of posts) {
 		if (post.data.url.indexOf(".jpg") >= 0) {
+			let url = post.data.preview.images[0].source.url;
 			let postLayout = `<article>
 			<h1>${post.data.title}</h1>
-			<img src="${post.data.url}">
+			<figure>
+			<img src="${url}" alt="imgur images don't work atm">
+			</figure>
 			</article>`;
 
 			subRedditContainer.innerHTML += postLayout;
