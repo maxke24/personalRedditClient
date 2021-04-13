@@ -1,10 +1,31 @@
+body {
+	background: #eeebe3;
+	color: black;
+}
+
 h1 {
 	text-align: center;
 }
 
-article {
-	width: 95vmin;
+form {
+	display: flex;
+	width: 50%;
+	flex-direction: row;
 	margin: auto;
+	justify-content: space-around;
+}
+
+input,
+button {
+	box-sizing: border-box;
+	width: 40%;
+}
+
+article {
+	width: 90vmin;
+	margin: 2vmin auto;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.8);
+	padding: 3vmin;
 }
 
 img {

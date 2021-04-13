@@ -16,7 +16,6 @@ async function fillRedditPosts(subreddit, sort) {
 			</article>`;
 
 			subRedditContainer.innerHTML += postLayout;
-			console.log(post);
 		}
 	}
 }
