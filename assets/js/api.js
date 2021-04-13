@@ -3,10 +3,14 @@
 async function getRedditPosts(subreddit, sort = undefined) {
 	let url;
 	sort
-		? (url = `https://www.reddit.com/r/${subreddit}/${sort}.json`)
-		: (url = `https://www.reddit.com/r/${subreddit}.json`);
+		? (url = `https://www.reddit.com/r/${subreddit}/${sort}.json?limit=10`)
+		: (url = `https://www.reddit.com/r/${subreddit}.json?limit=10`);
+	if (after) {
+		url += `&after=${after}`;
+	}
 	const response = await fetch(url);
 	const rs = await response.json();
+	after = rs.data.after;
 	return await rs.data.children;
 }
 
