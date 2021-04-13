@@ -3,10 +3,27 @@ h1 {
 }
 
 article {
-	width: 95vmin;
+	width: 90vmin;
+	margin: 0.5rem auto;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.8);
+	padding: 3vmin;
+	border-radius: 5px;
+}
+
+form {
+	display: flex;
+	flex-direction: row;
+}
+
+input,
+button {
+	box-sizing: border-box;
+	width: 40%;
 	margin: auto;
 }
 
+figure,
 img {
 	width: 100%;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.8);
 }
