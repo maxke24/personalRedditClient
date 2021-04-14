@@ -2,6 +2,7 @@
 
 async function getRedditPosts(subreddit, sort = undefined) {
 	disableFetch = true;
+	reddit = subreddit;
 	let url;
 	sort
 		? (url = `https://www.reddit.com/r/${subreddit}/${sort}.json?limit=10`)
@@ -20,6 +21,7 @@ async function getSubReddit(ev) {
 	const input = document.querySelector("input");
 	const subReddits = document.querySelector("datalist");
 	const name = input.value;
+	if (name.length < 3) return;
 	const url = `https://www.reddit.com/api/search_reddit_names.json?query=${name}`;
 	const response = await fetch(url);
 	const rs = await response.json();
@@ -27,17 +29,8 @@ async function getSubReddit(ev) {
 		subReddits.innerHTML += `<option value="${element}">${element}</option>`;
 	});
 
-	/* 	const redditList = document.querySelector("datalist").forEach((option) => {
-		option.addEventListener("input", (ev) => {
-			ev.preventDefault();
-			console.log(ev);
-			fillRedditPosts();
-		});
-	}); */
-
 	document.querySelector("input").addEventListener("input", (ev) => {
 		ev.preventDefault();
-		console.log(ev);
 		fillRedditPosts(ev.target.value);
 	});
 }

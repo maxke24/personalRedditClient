@@ -1,11 +1,11 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", init);
 let after = null;
-let reddit = "all";
+let reddit = "aww";
 let disableFetch = false;
 
 function init() {
-	fillRedditPosts("aww");
+	fillRedditPosts(reddit);
 	document.querySelector("form").addEventListener("submit", (ev) => {
 		ev.preventDefault();
 		reddit = document.querySelector("input").value;
