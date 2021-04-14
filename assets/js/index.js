@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", init);
 let after = null;
 let reddit = "all";
+let disableFetch = false;
 
 function init() {
 	fillRedditPosts("aww");
@@ -14,7 +15,9 @@ function init() {
 }
 
 async function fillRedditPosts(subreddit, sort) {
+	if (disableFetch) return;
 	let subRedditContainer = document.querySelector("#redditPosts");
+	after = null;
 	subRedditContainer.innerHTML = "";
 	const posts = await getRedditPosts(subreddit);
 	for (let post of posts) {
@@ -30,9 +33,12 @@ async function fillRedditPosts(subreddit, sort) {
 			subRedditContainer.innerHTML += postLayout;
 		}
 	}
+
+	disableFetch = false;
 }
 
 async function loadExtraRedditPosts(subreddit, sort) {
+	if (disableFetch) return;
 	let subRedditContainer = document.querySelector("#redditPosts");
 	const posts = await getRedditPosts(subreddit);
 	for (let post of posts) {
@@ -48,6 +54,7 @@ async function loadExtraRedditPosts(subreddit, sort) {
 			subRedditContainer.innerHTML += postLayout;
 		}
 	}
+	disableFetch = false;
 }
 
 window.onscroll = function (ev) {

@@ -1,6 +1,7 @@
 "use strict";
 
 async function getRedditPosts(subreddit, sort = undefined) {
+	disableFetch = true;
 	let url;
 	sort
 		? (url = `https://www.reddit.com/r/${subreddit}/${sort}.json?limit=10`)
