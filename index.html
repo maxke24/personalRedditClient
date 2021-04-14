@@ -11,7 +11,7 @@
 		<main>
 			<h1>Custom reddit client</h1>
 			<form>
-				<input type="text" name="redditSearch"></input>
+				<input type="text" name="redditSearch" list="subreddits" autocomplete="off"></input>
 				<datalist id="subreddits">
 				</datalist>
 
@@ -25,6 +25,7 @@
 			integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 			crossorigin="anonymous"
 		></script>
+		<script src="assets/js/debounce.js"></script>
 		<script src="assets/js/api.js"></script>
 		<script src="assets/js/index.js"></script>
 	</body>

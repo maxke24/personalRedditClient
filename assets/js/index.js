@@ -12,6 +12,10 @@ function init() {
 		fillRedditPosts(reddit, "hot");
 		document.querySelector("input").value = "";
 	});
+
+	document
+		.querySelector("input")
+		.addEventListener("input", $.debounce(500, getSubReddit));
 }
 
 async function fillRedditPosts(subreddit, sort) {
@@ -33,7 +37,8 @@ async function fillRedditPosts(subreddit, sort) {
 			subRedditContainer.innerHTML += postLayout;
 		}
 	}
-
+	document.querySelector("input").value = "";
+	document.querySelector("datalist").innerHTML = "";
 	disableFetch = false;
 }
 

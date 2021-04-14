@@ -17,11 +17,27 @@ async function getRedditPosts(subreddit, sort = undefined) {
 
 async function getSubReddit(ev) {
 	ev.preventDefault();
-	let input = document.querySelector("input");
+	const input = document.querySelector("input");
+	const subReddits = document.querySelector("datalist");
 	const name = input.value;
-	input.value = "";
 	const url = `https://www.reddit.com/api/search_reddit_names.json?query=${name}`;
 	const response = await fetch(url);
 	const rs = await response.json();
-	console.log(rs);
+	rs.names.forEach((element) => {
+		subReddits.innerHTML += `<option value="${element}">${element}</option>`;
+	});
+
+	/* 	const redditList = document.querySelector("datalist").forEach((option) => {
+		option.addEventListener("input", (ev) => {
+			ev.preventDefault();
+			console.log(ev);
+			fillRedditPosts();
+		});
+	}); */
+
+	document.querySelector("input").addEventListener("input", (ev) => {
+		ev.preventDefault();
+		console.log(ev);
+		fillRedditPosts(ev.target.value);
+	});
 }
