@@ -9,16 +9,17 @@ h1 {
 
 form {
 	display: flex;
-	width: 50%;
+	width: 100%;
 	flex-direction: row;
-	margin: auto;
+	margin: 0;
 	justify-content: space-around;
 }
 
-input,
-button {
+input {
 	box-sizing: border-box;
-	width: 40%;
+	width: 100vmin;
+	border-radius: 1vmin;
+	margin: auto;
 }
 
 article {
@@ -26,7 +27,7 @@ article {
 	margin: 2vmin auto;
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.8);
 	padding: 3vmin;
-	border-radius: 2vmin;
+	border-radius: 1vmin;
 }
 
 figure,
