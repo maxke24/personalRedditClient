@@ -3,6 +3,7 @@
 async function getRedditPosts(subreddit, sort = undefined) {
 	disableFetch = true;
 	reddit = subreddit;
+	document.querySelector("h1").innerHTML = `r/${reddit}`;
 	let url;
 	sort
 		? (url = `https://www.reddit.com/r/${subreddit}/${sort}.json?limit=10`)
