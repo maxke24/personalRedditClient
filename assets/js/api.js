@@ -22,16 +22,18 @@ async function getSubReddit(ev) {
 	const input = document.querySelector("input");
 	const subReddits = document.querySelector("datalist");
 	const name = input.value;
-	if (name.length < 3) return;
-	const url = `https://www.reddit.com/api/search_reddit_names.json?query=${name}`;
-	const response = await fetch(url);
-	const rs = await response.json();
-	rs.names.forEach((element) => {
-		subReddits.innerHTML += `<option value="${element}">${element}</option>`;
-	});
+	if (name.length >= 3) {
+		const url = `https://www.reddit.com/api/search_reddit_names.json?query=${name}`;
 
-	document.querySelector("input").addEventListener("input", (ev) => {
-		ev.preventDefault();
-		fillRedditPosts(ev.target.value);
-	});
+		const response = await fetch(url);
+		const rs = await response.json();
+		rs.names.forEach((element) => {
+			subReddits.innerHTML += `<option value="${element}">${element}</option>`;
+		});
+
+		document.querySelector("input").addEventListener("input", (ev) => {
+			ev.preventDefault();
+			fillRedditPosts(ev.target.value);
+		});
+	}
 }
