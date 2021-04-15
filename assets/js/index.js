@@ -1,7 +1,7 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", init);
 let after = null;
-let reddit = ["aww"];
+let reddit = "aww";
 let disableFetch = false;
 
 function init() {

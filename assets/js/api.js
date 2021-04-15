@@ -3,11 +3,11 @@
 async function getRedditPosts(subreddit, sort = undefined) {
 	disableFetch = true;
 	let url;
-	let subreddits = "";
+	/* 	let subreddits = "";
 	console.log(subreddit);
 	subreddit.forEach((reddit) => {
 		subreddits += `+reddit`;
-	});
+	}); */
 
 	sort
 		? (url = `https://www.reddit.com/r/${subreddit}/${sort}.json?limit=10`)
