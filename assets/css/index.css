@@ -1,6 +1,13 @@
 body {
 	background: #eeebe3;
 	color: black;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+	display: none;
 }
 
 h1 {
@@ -21,6 +28,7 @@ input {
 	width: 100vmin;
 	border-radius: 1vmin;
 	margin: auto;
+	padding: 2vmin;
 }
 
 article {
@@ -37,4 +45,133 @@ video {
 	width: 100%;
 	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.8);
 	margin: 0;
+}
+
+nav {
+	position: fixed;
+	font-weight: 700;
+	z-index: 10;
+	padding: 0.5vw 1vw;
+	border-radius: 0 0 0 0.3vw;
+	box-shadow: -1px 1px 5px 0 rgba(0, 0, 0, 0.5);
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+nav a {
+	text-decoration: none;
+	padding: 0.5vw;
+	font-size: 1.5vw;
+	line-height: 1.5;
+	color: #fff;
+	text-decoration: none;
+	line-height: 1.5;
+}
+#openMenu,
+.closebtn {
+	display: none;
+}
+
+nav {
+	position: fixed;
+	font-weight: 700;
+	z-index: 10;
+	padding: 0.5vw 1vw;
+	border-radius: 0 0 0 0.3vw;
+	box-shadow: -1px 1px 5px 0 rgba(0, 0, 0, 0.5);
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+nav a {
+	text-decoration: none;
+	padding: 0.5vw;
+	font-size: 1.5vw;
+	line-height: 1.5;
+	color: #fff;
+	text-decoration: none;
+	line-height: 1.5;
+}
+#openMenu,
+.closebtn {
+	display: none;
+}
+#colorChangeButtons {
+	position: fixed;
+	z-index: 10;
+	bottom: 1vw;
+	overflow: auto;
+	height: 20vw;
+	left: 1vw;
+	border-radius: 1vw;
+	background-color: rgba(52, 73, 94, 0.98);
+	box-shadow: var(--shadow);
+}
+#colorChangeButtons a {
+	color: #fff;
+	display: block;
+	width: 10vmin;
+}
+
+nav.open {
+	width: 100%;
+}
+@media (max-width: 1050px) {
+	nav {
+		height: 100%;
+		width: 0;
+		position: fixed;
+		padding: 0;
+		top: 0;
+		left: 0;
+		background-color: rgba(52, 73, 94, 0.98);
+		overflow-x: hidden;
+		transition: 0.5s;
+		z-index: 2;
+		margin-top: 0;
+	}
+	nav a {
+		padding: 5vmin;
+		text-decoration: none;
+		font-size: 10vmin;
+		color: #fff;
+		display: block;
+		transition: 0.3s;
+		width: 100%;
+	}
+	nav a:focus,
+	nav a:hover {
+		background-color: var(--primary);
+	}
+	#openMenu,
+	.closebtn {
+		font-size: 8vmin;
+		cursor: pointer;
+		position: fixed;
+		z-index: 2;
+		display: block;
+		padding: 0 1vmin;
+		cursor: pointer;
+	}
+	a {
+		width: 100%;
+		text-align: center;
+		position: relative;
+	}
+	a:nth-child(2) {
+		width: 100%;
+	}
+	a:nth-child(3) {
+		width: 100%;
+	}
+	a:nth-child(4) {
+		width: 100%;
+	}
+	nav a:focus,
+	nav a:hover {
+		background-color: transparent;
+	}
+	.closebtn {
+		position: absolute;
+		text-align: right;
+		right: 1vmin;
+	}
 }

@@ -50,7 +50,6 @@ function createPosts(posts, subRedditContainer) {
 	for (let post of posts) {
 		let imgUrl = post.data.url;
 		let url = null;
-		console.log(post);
 		if (post.data.is_video) {
 			url = post.data.media.reddit_video.fallback_url;
 			let postLayout = `<article>
