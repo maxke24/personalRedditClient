@@ -60,35 +60,15 @@ function setStyling(theme) {
 }
 
 $("nav").load("nav.html", () => {
-	document
-		.querySelectorAll("#colorChangeButtons a")
-		.forEach((selected) => selected.addEventListener("click", selectStyling));
 	document.querySelector("#openMenu").addEventListener("click", openNav);
 	document.querySelector(".closebtn").addEventListener("click", closeNav);
+	document.querySelector("#addReddits").addEventListener("click", (ev) => {
+		ev.preventDefault();
+		let element = document.querySelector("#addMultipleReddits");
+		element.style.display = "flex";
+	});
 
-	if (
-		document.querySelector("body").getAttribute("data-page") !== "portfolio"
-	) {
-		$("#home").on("click", function (event) {
-			event.preventDefault();
-
-			closeNav();
-			$("html, body").animate(
-				{
-					scrollTop: $("body").offset().top,
-				},
-				800
-			);
-		});
-
-		$("#about").on("click", function (event) {
-			closeNav();
-			$("html, body").animate(
-				{
-					scrollTop: $("#about>section").offset().top,
-				},
-				800
-			);
-		});
-	}
+	document
+		.querySelector("#addMultipleReddits")
+		.addEventListener("submit", addMultipleReddits);
 });

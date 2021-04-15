@@ -1,7 +1,7 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", init);
 let after = null;
-let reddit = "aww";
+let reddit = ["aww"];
 let disableFetch = false;
 
 function init() {
@@ -81,4 +81,12 @@ function createPosts(posts, subRedditContainer) {
 			}
 		}
 	}
+}
+
+function addMultipleReddits(ev) {
+	ev.preventDefault();
+	let input = document.querySelector("#extraSubreddit").value;
+	reddit.push(input);
+	fillRedditPosts(reddit);
+	document.querySelector("#addMultipleReddits").style.display = "hidden";
 }

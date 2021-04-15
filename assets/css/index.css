@@ -129,13 +129,12 @@ nav.open {
 		margin-top: 0;
 	}
 	nav a {
-		padding: 5vmin;
 		text-decoration: none;
-		font-size: 10vmin;
+		font-size: 4vmin;
 		color: #fff;
 		display: block;
 		transition: 0.3s;
-		width: 100%;
+		margin-top: 5vmin;
 	}
 	nav a:focus,
 	nav a:hover {
@@ -173,5 +172,26 @@ nav.open {
 		position: absolute;
 		text-align: right;
 		right: 1vmin;
+		margin: 0;
+		width: auto;
 	}
+}
+
+#addMultipleReddits {
+	position: fixed;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	display: none;
+	background-color: rgba(52, 73, 94, 0.98);
+	justify-content: center;
+}
+#addMultipleReddits > input,
+#addMultipleReddits > button {
+	margin: 2vmin;
+	height: 10vmin;
+	width: 90%;
+	box-sizing: border-box;
 }

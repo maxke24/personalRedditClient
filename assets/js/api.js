@@ -3,6 +3,12 @@
 async function getRedditPosts(subreddit, sort = undefined) {
 	disableFetch = true;
 	let url;
+	let subreddits = "";
+	console.log(subreddit);
+	subreddit.forEach((reddit) => {
+		subreddits += `+reddit`;
+	});
+
 	sort
 		? (url = `https://www.reddit.com/r/${subreddit}/${sort}.json?limit=10`)
 		: (url = `https://www.reddit.com/r/${subreddit}.json?limit=10`);
@@ -16,7 +22,7 @@ async function getRedditPosts(subreddit, sort = undefined) {
 	}
 	const rs = await response.json();
 	after = rs.data.after;
-	reddit = subreddit;
+	reddit = [subreddit];
 	document.querySelector("h1").innerHTML = `r/${reddit}`;
 	return await rs.data.children;
 }
@@ -34,10 +40,5 @@ async function getSubReddit(ev) {
 		rs.names.forEach((element) => {
 			subReddits.innerHTML += `<option value="${element}">${element}</option>`;
 		});
-
-		/* 		document.querySelector("input").addEventListener("input", (ev) => {
-			ev.preventDefault();
-			fillRedditPosts(ev.target.value);
-		}); */
 	}
 }
