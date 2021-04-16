@@ -8,7 +8,7 @@ async function SearchReddit(ev = null) {
 		document.querySelector("#menu").classList.toggle("show");
 	}
 	let newReddit = document.querySelector("#extraSubreddit").value;
-	if (newReddit.length > 3) {
+	if (newReddit.length >= 3) {
 		reddit = [newReddit];
 	}
 	loadReddits();

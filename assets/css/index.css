@@ -23,7 +23,6 @@ h1 {
 }
 
 form {
-	display: none;
 	width: 100%;
 	flex-direction: column;
 	background: #fbfaf5;
@@ -34,10 +33,16 @@ form {
 	bottom: 0;
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.8);
 	align-items: center;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: visibility 0.3s linear, opacity 0.3s linear;
+	-moz-transition: visibility 0.3s linear, opacity 0.3s linear;
+	-o-transition: visibility 0.3s linear, opacity 0.3s linear;
 }
 
 form.show {
-	display: flex;
+	visibility: visible;
+	opacity: 1;
 }
 
 #buttons {
