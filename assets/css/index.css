@@ -1,5 +1,5 @@
 body {
-	background: #eeebe3;
+	background: #fbfaf5;
 	color: black;
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
@@ -25,20 +25,40 @@ h1 {
 form {
 	display: none;
 	width: 100%;
-	flex-direction: row;
-	background: #eeebe3;
-	justify-content: space-around;
+	height: 80%;
+	flex-direction: column;
+	background: #fbfaf5;
+	justify-content: flex-start;
 	border-radius: 5vmin 5vmin 0 0;
+	padding: 2vmin;
+	position: fixed;
+	bottom: 0;
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.8);
+	align-items: center;
 }
 
-input {
+form.show {
+	display: flex;
+}
+
+#buttons {
+	display: flex;
+	flex-direction: row;
+	width: 90%;
+}
+
+input,
+button {
 	box-sizing: border-box;
 	width: 90%;
 	border-radius: 1vmin;
-	display: hidden;
-	margin: auto;
+	display: block;
+	margin: 2.5vmin;
 	padding: 2vmin;
+}
+
+button {
+	width: 45%;
 }
 
 article {
