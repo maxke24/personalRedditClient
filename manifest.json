@@ -6,11 +6,5 @@
 	"display": "browser",
 	"orientation": "portrait",
 	"scope": "/",
-	"start_url": "/",
-	"icons": [
-		{
-			"src": "favicon.png",
-			"type": "image/png"
-		}
-	]
+	"start_url": "/index.html"
 }
