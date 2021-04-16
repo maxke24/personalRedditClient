@@ -1,8 +1,10 @@
 let after = null;
+let loadNext = null;
 let reddit = ["all"];
 let disableFetch = false;
 
 async function SearchReddit(ev = null) {
+	disableFetch = true;
 	if (ev) {
 		ev.preventDefault();
 		document.querySelector("#menu").classList.toggle("show");
@@ -11,16 +13,16 @@ async function SearchReddit(ev = null) {
 	if (newReddit.length >= 3) {
 		reddit = [newReddit];
 	}
-	loadReddits();
+	loadReddits(20);
 }
 
-async function loadReddits() {
+async function loadReddits(amount = 10) {
 	const err = document.querySelector("#menu #err");
 	err.innerText = "";
 	if (disableFetch) return;
 	const subRedditContainer = document.querySelector("#redditPosts");
 	after = null;
-	const posts = await getRedditPosts(reddit);
+	const posts = await getRedditPosts(reddit, amount);
 	if (posts !== undefined) {
 		subRedditContainer.innerHTML = "";
 		createPosts(posts, subRedditContainer);
@@ -29,7 +31,6 @@ async function loadReddits() {
 		err.innerText = "Subreddit not found!";
 		return;
 	}
-	disableFetch = false;
 
 	const redditList = document.querySelector("#subRedditList");
 	const h1 = document.querySelector("h1");
@@ -46,6 +47,7 @@ async function loadReddits() {
 }
 
 function removeFromSubredditList(ev) {
+	disableFetch = true;
 	ev.preventDefault();
 	const index = reddit.indexOf(ev.target.innerText.split("/")[1]);
 	if (index >= 0) {
@@ -59,10 +61,11 @@ function removeFromSubredditList(ev) {
 	loadReddits();
 }
 
-async function loadExtraRedditPosts(subreddit, sort) {
+async function loadExtraRedditPosts() {
 	if (disableFetch) return;
+	disableFetch = true;
 	const subRedditContainer = document.querySelector("#redditPosts");
-	const posts = await getRedditPosts(subreddit);
+	const posts = await getRedditPosts(reddit);
 	createPosts(posts, subRedditContainer);
 	disableFetch = false;
 }
@@ -73,7 +76,7 @@ function createPosts(posts, subRedditContainer) {
 		let url = null;
 		if (post.data.is_video) {
 			url = post.data.media.reddit_video.fallback_url;
-			const postLayout = `<article>
+			const postLayout = `<article id=${post.data.name}>
 			<h1>${post.data.title}</h1>
 			<figure>
 			<video autoplay loop controls>
@@ -91,7 +94,7 @@ function createPosts(posts, subRedditContainer) {
 				url = imgUrl;
 			}
 			if (url) {
-				const postLayout = `<article>
+				const postLayout = `<article id=${post.data.name}>
 				<h1>${post.data.title}</h1>
 				<figure>
 				<img src="${url}" loading="lazy" alt="imgur images don't work atm">
@@ -102,10 +105,12 @@ function createPosts(posts, subRedditContainer) {
 			}
 		}
 	}
+	disableFetch = false;
 }
 
 function addSubReddit(ev) {
 	ev.preventDefault();
+	disableFetch = true;
 	const input = document.querySelector("#extraSubreddit").value;
 	const err = document.querySelector("#menu #err");
 	err.innerText = "";
