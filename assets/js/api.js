@@ -3,11 +3,6 @@
 async function getRedditPosts(reddits, sort = undefined) {
 	disableFetch = true;
 	let url;
-	/* 	let subreddits = "";
-	console.log(subreddit);
-	subreddit.forEach((reddit) => {
-		subreddits += `+reddit`;
-	}); */
 	let redditUrl = "";
 	reddits.forEach((reddit) => {
 		redditUrl += `+${reddit}`;
@@ -24,7 +19,6 @@ async function getRedditPosts(reddits, sort = undefined) {
 	}
 	const rs = await response.json();
 	after = rs.data.after;
-	document.querySelector("h1").innerHTML = `r/${reddit}`;
 	return await rs.data.children;
 }
 

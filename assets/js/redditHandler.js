@@ -11,6 +11,10 @@ async function SearchReddit(ev = null) {
 	if (newReddit.length > 3) {
 		reddit = [newReddit];
 	}
+	loadReddits();
+}
+
+async function loadReddits() {
 	if (disableFetch) return;
 	let subRedditContainer = document.querySelector("#redditPosts");
 	after = null;
@@ -26,9 +30,12 @@ async function SearchReddit(ev = null) {
 	disableFetch = false;
 
 	let redditList = document.querySelector("#subRedditList");
+	let h1 = document.querySelector("h1");
 	redditList.innerHTML = "";
+	h1.innerHTML = "";
 	reddit.forEach((r) => {
 		redditList.innerHTML += `<p>r/${r}\n</p>`;
+		h1.innerHTML += `r/${r} `;
 	});
 }
 
@@ -81,6 +88,5 @@ function addSubReddit(ev) {
 	ev.preventDefault();
 	let input = document.querySelector("#extraSubreddit").value;
 	reddit.push(input);
-	SearchReddit();
-	document.querySelector("#addMultipleReddits").style.display = "hidden";
+	loadReddits();
 }

@@ -70,5 +70,5 @@ $("nav").load("nav.html", (e) => {
 	document
 		.querySelector("#searchReddit")
 		.addEventListener("click", SearchReddit);
-	SearchReddit();
+	loadReddits();
 });
