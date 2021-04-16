@@ -6,9 +6,6 @@ async function getRedditPosts(reddits, amount = 10) {
 	reddits.forEach((reddit) => {
 		redditUrl += `+${reddit}`;
 	});
-	/* 	sort
-		? (url = `https://www.reddit.com/r/${redditUrl}/${sort}.json?limit=${amount}`)
-		: (); */
 	url = `https://www.reddit.com/r/${redditUrl}.json?limit=${amount}`;
 	if (after) {
 		url += `&after=${after}`;
@@ -20,7 +17,7 @@ async function getRedditPosts(reddits, amount = 10) {
 	const rs = await response.json();
 	after = rs.data.after;
 	let i = Math.floor(amount / 2);
-	loadNext = rs.data.children[i].data.name;
+	/* loadNext = rs.data.children[i].data.name; */
 	return await rs.data.children;
 }
 

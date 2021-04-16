@@ -1,8 +1,6 @@
 let after = null;
-let loadNext = null;
 let reddit = ["all"];
 let disableFetch = false;
-let scroll = false;
 
 async function SearchReddit(ev = null) {
 	disableFetch = true;
