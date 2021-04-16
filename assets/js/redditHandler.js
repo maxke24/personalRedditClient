@@ -1,5 +1,5 @@
 let after = null;
-let reddit = ["aww"];
+let reddit = ["all"];
 let disableFetch = false;
 
 async function SearchReddit(ev = null) {
@@ -15,8 +15,10 @@ async function SearchReddit(ev = null) {
 }
 
 async function loadReddits() {
+	const err = document.querySelector("#menu #err");
+	err.innerText = "";
 	if (disableFetch) return;
-	let subRedditContainer = document.querySelector("#redditPosts");
+	const subRedditContainer = document.querySelector("#redditPosts");
 	after = null;
 	const posts = await getRedditPosts(reddit);
 	if (posts !== undefined) {
@@ -24,24 +26,42 @@ async function loadReddits() {
 		createPosts(posts, subRedditContainer);
 		document.querySelector("input").value = "";
 	} else {
-		document.querySelector("#menu #err").innerText = "Subreddit not found!";
+		err.innerText = "Subreddit not found!";
 		return;
 	}
 	disableFetch = false;
 
-	let redditList = document.querySelector("#subRedditList");
-	let h1 = document.querySelector("h1");
+	const redditList = document.querySelector("#subRedditList");
+	const h1 = document.querySelector("h1");
 	redditList.innerHTML = "";
 	h1.innerHTML = "";
 	reddit.forEach((r) => {
-		redditList.innerHTML += `<p>r/${r}\n</p>`;
+		redditList.innerHTML += `<p id="redditButtons">r/${r}\n</p>`;
 		h1.innerHTML += `r/${r} `;
 	});
+
+	document.querySelectorAll("#redditButtons").forEach((button) => {
+		button.addEventListener("click", removeFromSubredditList);
+	});
+}
+
+function removeFromSubredditList(ev) {
+	ev.preventDefault();
+	const index = reddit.indexOf(ev.target.innerText.split("/")[1]);
+	if (index >= 0) {
+		reddit.splice(index, 1);
+	}
+
+	if (reddit.length === 0) {
+		reddit.push("all");
+	}
+
+	loadReddits();
 }
 
 async function loadExtraRedditPosts(subreddit, sort) {
 	if (disableFetch) return;
-	let subRedditContainer = document.querySelector("#redditPosts");
+	const subRedditContainer = document.querySelector("#redditPosts");
 	const posts = await getRedditPosts(subreddit);
 	createPosts(posts, subRedditContainer);
 	disableFetch = false;
@@ -49,11 +69,11 @@ async function loadExtraRedditPosts(subreddit, sort) {
 
 function createPosts(posts, subRedditContainer) {
 	for (let post of posts) {
-		let imgUrl = post.data.url;
+		const imgUrl = post.data.url;
 		let url = null;
 		if (post.data.is_video) {
 			url = post.data.media.reddit_video.fallback_url;
-			let postLayout = `<article>
+			const postLayout = `<article>
 			<h1>${post.data.title}</h1>
 			<figure>
 			<video autoplay loop controls>
@@ -71,7 +91,7 @@ function createPosts(posts, subRedditContainer) {
 				url = imgUrl;
 			}
 			if (url) {
-				let postLayout = `<article>
+				const postLayout = `<article>
 				<h1>${post.data.title}</h1>
 				<figure>
 				<img src="${url}" loading="lazy" alt="imgur images don't work atm">
@@ -86,7 +106,17 @@ function createPosts(posts, subRedditContainer) {
 
 function addSubReddit(ev) {
 	ev.preventDefault();
-	let input = document.querySelector("#extraSubreddit").value;
-	reddit.push(input);
+	const input = document.querySelector("#extraSubreddit").value;
+	const err = document.querySelector("#menu #err");
+	err.innerText = "";
+	if (reddit.indexOf(input) >= 0) {
+		err.innerText = "Reddit already added!";
+		return;
+	}
+	if (reddit.length === 1 && reddit[0] === "all") {
+		reddit = [input];
+	} else {
+		reddit.push(input);
+	}
 	loadReddits();
 }
