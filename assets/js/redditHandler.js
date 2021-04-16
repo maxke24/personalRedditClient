@@ -2,6 +2,7 @@ let after = null;
 let loadNext = null;
 let reddit = ["all"];
 let disableFetch = false;
+let scroll = false;
 
 async function SearchReddit(ev = null) {
 	disableFetch = true;
@@ -67,7 +68,6 @@ async function loadExtraRedditPosts() {
 	const subRedditContainer = document.querySelector("#redditPosts");
 	const posts = await getRedditPosts(reddit);
 	createPosts(posts, subRedditContainer);
-	disableFetch = false;
 }
 
 function createPosts(posts, subRedditContainer) {
