@@ -71,15 +71,4 @@ $("nav").load("nav.html", (e) => {
 		.querySelector("#searchReddit")
 		.addEventListener("click", SearchReddit);
 	SearchReddit();
-
-	document.querySelector("#menu").addEventListener("submit", (ev) => {
-		console.log("something");
-		ev.preventDefault();
-	});
-
-	$("#menu").onSwipe((res) => {
-		if (res.down === true) {
-			$("#menu").toggleClass("show");
-		}
-	});
 });

@@ -1,0 +1,16 @@
+{
+	"name": "Readit",
+	"short_name": "Readit",
+	"theme_color": "#fbfaf5",
+	"background_color": "#fbfaf5",
+	"display": "browser",
+	"orientation": "portrait",
+	"scope": "/",
+	"start_url": "/",
+	"icons": [
+		{
+			"src": "favicon.png",
+			"type": "image/png"
+		}
+	]
+}

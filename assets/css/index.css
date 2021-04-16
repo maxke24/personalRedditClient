@@ -25,7 +25,6 @@ h1 {
 form {
 	display: none;
 	width: 100%;
-	height: 80%;
 	flex-direction: column;
 	background: #fbfaf5;
 	justify-content: flex-start;
@@ -55,10 +54,18 @@ button {
 	display: block;
 	margin: 2.5vmin;
 	padding: 2vmin;
+	border: 1px solid black;
 }
 
 button {
 	width: 45%;
+	background-color: #86c627;
+	border: none;
+	color: #fbfaf5;
+}
+
+#buttons button:nth-child(2) {
+	background-color: #7cb1d1;
 }
 
 article {
@@ -107,6 +114,8 @@ nav a {
 	flex-direction: row;
 	width: 90%;
 	height: 100%;
+	flex-wrap: wrap;
+	justify-content: flex-start;
 }
 
 #subRedditList p {
