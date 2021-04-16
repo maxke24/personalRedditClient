@@ -76,4 +76,10 @@ $("nav").load("nav.html", (e) => {
 		console.log("something");
 		ev.preventDefault();
 	});
+
+	$("#menu").onSwipe((res) => {
+		if (res.down === true) {
+			$("#menu").toggleClass("show");
+		}
+	});
 });
