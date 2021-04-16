@@ -19,18 +19,15 @@ body::-webkit-scrollbar {
 h1 {
 	text-align: center;
 	font-size: 5vmin;
+	margin: 5vmin 0;
 }
 
 form {
-	display: flex;
+	display: none;
 	width: 100%;
 	flex-direction: row;
-	margin: 0;
-	position: fixed;
-	bottom: 0;
 	background: #eeebe3;
 	justify-content: space-around;
-	height: 20vmin;
 	border-radius: 5vmin 5vmin 0 0;
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.8);
 }
@@ -39,6 +36,7 @@ input {
 	box-sizing: border-box;
 	width: 90%;
 	border-radius: 1vmin;
+	display: hidden;
 	margin: auto;
 	padding: 2vmin;
 }
@@ -61,149 +59,21 @@ video {
 
 nav {
 	position: fixed;
-	font-weight: 700;
-	z-index: 10;
-	padding: 0.5vw 1vw;
-	border-radius: 0 0 0 0.3vw;
-	box-shadow: -1px 1px 5px 0 rgba(0, 0, 0, 0.5);
-	right: 0;
-	background-color: rgba(0, 0, 0, 0.5);
-}
-nav a {
-	text-decoration: none;
-	padding: 0.5vw;
-	font-size: 1.5vw;
-	line-height: 1.5;
-	color: #fff;
-	text-decoration: none;
-	line-height: 1.5;
-}
-#openMenu,
-.closebtn {
-	display: none;
-}
-
-nav {
-	position: fixed;
-	font-weight: 700;
-	z-index: 10;
-	padding: 0.5vw 1vw;
-	border-radius: 0 0 0 0.3vw;
-	box-shadow: -1px 1px 5px 0 rgba(0, 0, 0, 0.5);
-	right: 0;
-	background-color: rgba(0, 0, 0, 0.5);
-}
-nav a {
-	text-decoration: none;
-	padding: 0.5vw;
-	font-size: 1.5vw;
-	line-height: 1.5;
-	color: #fff;
-	text-decoration: none;
-	line-height: 1.5;
-}
-#openMenu,
-.closebtn {
-	display: none;
-}
-#colorChangeButtons {
-	position: fixed;
-	z-index: 10;
-	bottom: 1vw;
-	overflow: auto;
-	height: 20vw;
-	left: 1vw;
-	border-radius: 1vw;
-	background-color: rgba(52, 73, 94, 0.98);
-	box-shadow: var(--shadow);
-}
-#colorChangeButtons a {
-	color: #fff;
 	display: block;
-	width: 10vmin;
-}
-
-nav.open {
-	width: 100%;
-}
-@media (max-width: 1050px) {
-	nav {
-		height: 100%;
-		width: 0;
-		position: fixed;
-		padding: 0;
-		top: 0;
-		left: 0;
-		background-color: rgba(52, 73, 94, 0.98);
-		overflow-x: hidden;
-		transition: 0.5s;
-		z-index: 2;
-		margin-top: 0;
-	}
-	nav a {
-		text-decoration: none;
-		font-size: 4vmin;
-		color: #fff;
-		display: block;
-		transition: 0.3s;
-		margin-top: 5vmin;
-	}
-	nav a:focus,
-	nav a:hover {
-		background-color: var(--primary);
-	}
-	#openMenu,
-	.closebtn {
-		font-size: 8vmin;
-		cursor: pointer;
-		position: fixed;
-		z-index: 2;
-		display: block;
-		padding: 0 1vmin;
-		cursor: pointer;
-	}
-	a {
-		width: 100%;
-		text-align: center;
-		position: relative;
-	}
-	a:nth-child(2) {
-		width: 100%;
-	}
-	a:nth-child(3) {
-		width: 100%;
-	}
-	a:nth-child(4) {
-		width: 100%;
-	}
-	nav a:focus,
-	nav a:hover {
-		background-color: transparent;
-	}
-	.closebtn {
-		position: absolute;
-		text-align: right;
-		right: 1vmin;
-		margin: 0;
-		width: auto;
-	}
-}
-
-#addMultipleReddits {
-	position: fixed;
-	flex-direction: column;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	display: none;
-	background-color: rgba(52, 73, 94, 0.98);
-	justify-content: center;
-}
-#addMultipleReddits > input,
-#addMultipleReddits > button {
-	margin: 2vmin;
+	z-index: 2;
+	bottom: 0;
+	border-radius: 5px 5px 0 0;
 	height: 10vmin;
-	width: 90%;
-	box-sizing: border-box;
+	width: 100%;
+	background-color: #eeebe3;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.8);
+}
+nav a {
+	color: #202020;
+	display: block;
+	text-decoration: none;
+	padding: 2vmin;
+	font-size: 5vmin;
+	font-weight: 700;
+	text-align: center;
 }

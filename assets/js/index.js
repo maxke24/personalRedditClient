@@ -6,16 +6,16 @@ let disableFetch = false;
 
 function init() {
 	fillRedditPosts(reddit);
-	document.querySelector("form").addEventListener("submit", (ev) => {
+	/* 	document.querySelector("form").addEventListener("submit", (ev) => {
 		ev.preventDefault();
 		let subReddit = document.querySelector("input").value;
 		fillRedditPosts(subReddit, "hot");
 		document.querySelector("input").value = "";
-	});
+	}); */
 
-	document
+	/* 	document
 		.querySelector("input")
-		.addEventListener("input", $.debounce(1000, getSubReddit));
+		.addEventListener("input", $.debounce(1000, getSubReddit)); */
 }
 
 async function fillRedditPosts(subreddit, sort) {
@@ -26,8 +26,8 @@ async function fillRedditPosts(subreddit, sort) {
 	if (posts !== undefined) {
 		subRedditContainer.innerHTML = "";
 		createPosts(posts, subRedditContainer);
-		document.querySelector("input").value = "";
-		document.querySelector("datalist").innerHTML = "";
+		/* document.querySelector("input").value = "";
+		document.querySelector("datalist").innerHTML = ""; */
 	}
 	disableFetch = false;
 }
