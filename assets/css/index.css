@@ -101,3 +101,23 @@ nav a {
 #err {
 	color: red;
 }
+
+#subRedditList {
+	display: flex;
+	flex-direction: row;
+	width: 90%;
+	height: 100%;
+}
+
+#subRedditList p {
+	padding: 2vmin;
+	border: 1px solid black;
+	box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+	height: max-content;
+	margin: 2.5vmin;
+}
+
+#subRedditList p:hover {
+	color: red;
+}

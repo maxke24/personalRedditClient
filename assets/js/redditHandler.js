@@ -75,6 +75,11 @@ function addSubReddit(ev) {
 	ev.preventDefault();
 	let input = document.querySelector("#extraSubreddit").value;
 	reddit.push(input);
+	let redditList = document.querySelector("#subRedditList");
+	redditList.innerHTML = "";
+	reddit.forEach((r) => {
+		redditList.innerHTML += `<p>r/${r} <span class='remove'>X</span>\n</p>`;
+	});
 	SearchReddit();
 	document.querySelector("#addMultipleReddits").style.display = "hidden";
 }
