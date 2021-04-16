@@ -1,13 +1,27 @@
-async function fillRedditPosts(subreddit, sort) {
+let after = null;
+let reddit = ["aww"];
+let disableFetch = false;
+
+async function SearchReddit(ev = null) {
+	if (ev) {
+		ev.preventDefault();
+	}
+	let newReddit = document.querySelector("#extraSubreddit").value;
+	if (newReddit.length > 3) {
+		reddit = [newReddit];
+	}
 	if (disableFetch) return;
 	let subRedditContainer = document.querySelector("#redditPosts");
 	after = null;
-	const posts = await getRedditPosts(subreddit);
+	const posts = await getRedditPosts(reddit);
 	if (posts !== undefined) {
 		subRedditContainer.innerHTML = "";
 		createPosts(posts, subRedditContainer);
-		/* document.querySelector("input").value = "";
-		document.querySelector("datalist").innerHTML = ""; */
+		document.querySelector("input").value = "";
+		document.querySelector("#menu").classList.toggle("show");
+	} else {
+		document.querySelector("#menu #err").innerText = "Subreddit not found!";
+		return;
 	}
 	disableFetch = false;
 }
@@ -57,10 +71,10 @@ function createPosts(posts, subRedditContainer) {
 	}
 }
 
-function addMultipleReddits(ev) {
+function addSubReddit(ev) {
 	ev.preventDefault();
 	let input = document.querySelector("#extraSubreddit").value;
 	reddit.push(input);
-	fillRedditPosts(reddit);
+	SearchReddit();
 	document.querySelector("#addMultipleReddits").style.display = "hidden";
 }

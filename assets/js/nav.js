@@ -59,11 +59,21 @@ function setStyling(theme) {
 	localforage.setItem("theme", theme);
 }
 
-$("nav").load("nav.html", (ev) => {
+$("nav").load("nav.html", (e) => {
 	document
 		.querySelector("#addMultipleReddits")
 		.addEventListener("click", (ev) => {
 			ev.preventDefault();
 			document.querySelector("#menu").classList.toggle("show");
 		});
+	document.querySelector("#addReddit").addEventListener("click", addSubReddit);
+	document
+		.querySelector("#searchReddit")
+		.addEventListener("click", SearchReddit);
+	SearchReddit();
+
+	document.querySelector("#menu").addEventListener("submit", (ev) => {
+		console.log("something");
+		ev.preventDefault();
+	});
 });

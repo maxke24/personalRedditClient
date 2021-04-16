@@ -1,6 +1,6 @@
 "use strict";
 
-async function getRedditPosts(subreddit, sort = undefined) {
+async function getRedditPosts(reddits, sort = undefined) {
 	disableFetch = true;
 	let url;
 	/* 	let subreddits = "";
@@ -8,21 +8,22 @@ async function getRedditPosts(subreddit, sort = undefined) {
 	subreddit.forEach((reddit) => {
 		subreddits += `+reddit`;
 	}); */
-
+	let redditUrl = "";
+	reddits.forEach((reddit) => {
+		redditUrl += `+${reddit}`;
+	});
 	sort
-		? (url = `https://www.reddit.com/r/${subreddit}/${sort}.json?limit=10`)
-		: (url = `https://www.reddit.com/r/${subreddit}.json?limit=10`);
+		? (url = `https://www.reddit.com/r/${redditUrl}/${sort}.json?limit=10`)
+		: (url = `https://www.reddit.com/r/${redditUrl}.json?limit=10`);
 	if (after) {
 		url += `&after=${after}`;
 	}
 	const response = await fetch(url);
 	if (response.ok === false) {
-		getRedditPosts(reddit);
-		return;
+		return undefined;
 	}
 	const rs = await response.json();
 	after = rs.data.after;
-	reddit = [subreddit];
 	document.querySelector("h1").innerHTML = `r/${reddit}`;
 	return await rs.data.children;
 }
