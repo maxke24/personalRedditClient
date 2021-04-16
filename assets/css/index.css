@@ -3,6 +3,12 @@ body {
 	color: black;
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
+	padding: 0;
+}
+
+main {
+	margin: 0;
+	padding: 0;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -20,12 +26,18 @@ form {
 	width: 100%;
 	flex-direction: row;
 	margin: 0;
+	position: fixed;
+	bottom: 0;
+	background: #eeebe3;
 	justify-content: space-around;
+	height: 20vmin;
+	border-radius: 5vmin 5vmin 0 0;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.8);
 }
 
 input {
 	box-sizing: border-box;
-	width: 100vmin;
+	width: 90%;
 	border-radius: 1vmin;
 	margin: auto;
 	padding: 2vmin;
