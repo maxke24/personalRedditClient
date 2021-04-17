@@ -1,0 +1,15 @@
+{
+	"background_color": "#fbfaf5",
+	"description": "Personal reddit client that i can customize myself",
+	"display": "fullscreen",
+	"icons": [
+		{
+			"src": "./favicon.png",
+			"sizes": "231x140",
+			"type": "image/png"
+		}
+	],
+	"name": "Readit",
+	"short_name": "Readit",
+	"start_url": "./index.html"
+}
