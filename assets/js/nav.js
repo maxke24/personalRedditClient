@@ -1,5 +1,5 @@
 "use strict";
-$("nav").load("nav.html", (e) => {
+$("nav").load("./nav.html", (e) => {
 	document.querySelector("#overlay").addEventListener("click", (ev) => {
 		ev.preventDefault();
 		document.querySelector("#menu").classList.toggle("show");
