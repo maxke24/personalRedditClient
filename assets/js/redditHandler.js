@@ -18,7 +18,6 @@ async function SearchReddit(ev = null) {
 async function loadReddits(amount = 10) {
 	const err = document.querySelector("#menu #err");
 	err.innerText = "";
-	if (disableFetch) return;
 	const subRedditContainer = document.querySelector("#redditPosts");
 	after = null;
 	const posts = await getRedditPosts(reddit, amount);
@@ -108,6 +107,8 @@ function createPosts(posts, subRedditContainer) {
 
 function addSubReddit(ev) {
 	ev.preventDefault();
+
+	if (disableFetch) return;
 	disableFetch = true;
 	const input = document.querySelector("#extraSubreddit").value;
 	const err = document.querySelector("#menu #err");

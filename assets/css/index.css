@@ -28,7 +28,7 @@ form {
 	background: #fbfaf5;
 	justify-content: flex-start;
 	border-radius: 10vmin 10vmin 0 0;
-	padding: 2vmin;
+	padding: 2vmin 0;
 	position: fixed;
 	bottom: 0;
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.8);
@@ -46,10 +46,12 @@ form.show {
 	opacity: 1;
 }
 
-#buttons {
+#buttons,
+#subRedditList {
 	display: flex;
 	flex-direction: row;
 	width: 90%;
+	margin: auto;
 }
 
 input,
@@ -58,7 +60,7 @@ button {
 	width: 90%;
 	border-radius: 1vmin;
 	display: block;
-	margin: 2.5vmin;
+	margin: 2.5vmin auto;
 	padding: 2vmin;
 	border: 1px solid black;
 }
@@ -111,19 +113,6 @@ nav a {
 	text-align: center;
 }
 
-#err {
-	color: red;
-}
-
-#subRedditList {
-	display: flex;
-	flex-direction: row;
-	width: 90%;
-	height: 100%;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-}
-
 #subRedditList p {
 	padding: 2vmin;
 	border: 1px solid black;
@@ -133,7 +122,36 @@ nav a {
 	margin: 2.5vmin;
 	cursor: pointer;
 }
+#err {
+	color: red;
+	padding: 2vmin 0;
+	margin: 0 5vmin;
+}
 
 #subRedditList p:hover {
 	color: red;
+}
+
+#overlay {
+	transition: background 0.1s linear, height 0.3s linear;
+	-webkit-transition: background 0.1s linear, height 0.3s linear;
+	-moz-transition: background 0.1s linear, height 0.3s linear;
+	-o-transition: background 0.1s linear, height 0.3s linear;
+}
+
+#overlay.blackOverlay {
+	position: fixed;
+	background: rgba(0, 0, 0, 0.9);
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+}
+
+#overlay.blackOverlay a {
+	color: #fbfaf5;
+	font-weight: bold;
+	font-size: 6vmin;
+	margin: auto;
 }

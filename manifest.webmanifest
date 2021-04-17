@@ -7,6 +7,11 @@
 			"src": "image512.png",
 			"sizes": "512x512",
 			"type": "image/png"
+		},
+		{
+			"src": "image1024.png",
+			"sizes": "1024x621",
+			"type": "image/png"
 		}
 	],
 	"name": "Readit",

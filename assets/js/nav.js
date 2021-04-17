@@ -1,11 +1,16 @@
 "use strict";
 $("nav").load("nav.html", (e) => {
-	document
-		.querySelector("#addMultipleReddits")
-		.addEventListener("click", (ev) => {
-			ev.preventDefault();
-			document.querySelector("#menu").classList.toggle("show");
-		});
+	document.querySelector("#overlay").addEventListener("click", (ev) => {
+		ev.preventDefault();
+		document.querySelector("#menu").classList.toggle("show");
+		const overlay = document.querySelector("#overlay");
+		overlay.classList.toggle("blackOverlay");
+		let text;
+		overlay.classList.contains("blackOverlay")
+			? (text = "Click here to close the menu")
+			: (text = "Click here to add a subreddit");
+		document.querySelector("#overlay a").innerText = text;
+	});
 	document.querySelector("#addReddit").addEventListener("click", addSubReddit);
 	document
 		.querySelector("#searchReddit")
