@@ -20,6 +20,14 @@ $("nav").load("./nav.html", (e) => {
 
 window.onscroll = function (e) {
 	const menu = document.querySelector("#menu");
+
 	if (menu.classList.contains("show"))
 		document.querySelector("#menu").classList.toggle("show");
 };
+
+$("section").scroll(() => {
+	scrollIndex--;
+	if (scrollIndex <= 0) {
+		loadExtraRedditPosts();
+	}
+});

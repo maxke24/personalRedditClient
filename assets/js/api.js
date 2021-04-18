@@ -16,8 +16,7 @@ async function getRedditPosts(reddits, amount = 10) {
 	}
 	const rs = await response.json();
 	after = rs.data.after;
-	let i = Math.floor(amount / 2);
-	/* loadNext = rs.data.children[i].data.name; */
+	scrollIndex = Math.floor(amount / 2);
 	return await rs.data.children;
 }
 

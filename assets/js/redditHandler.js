@@ -1,4 +1,5 @@
 let after = null;
+let scrollIndex;
 let reddit = ["all"];
 let disableFetch = false;
 
@@ -76,7 +77,7 @@ function createPosts(posts, subRedditContainer) {
 			const postLayout = `<article id=${post.data.name}>
 			<h1>${post.data.title}</h1>
 			<figure>
-			<video autoplay loop controls>
+			<video autoplay loop mute controls>
 			<source src="${url}" type=video/mp4>
 			</video>
 			</figure>
@@ -94,7 +95,7 @@ function createPosts(posts, subRedditContainer) {
 				const postLayout = `<article id=${post.data.name}>
 				<h1>${post.data.title}</h1>
 				<figure>
-				<img src="${url}" loading="lazy" alt="imgur images don't work atm">
+				<img src="${url}" alt="imgur images don't work atm">
 				</figure>
 				</article>`;
 
