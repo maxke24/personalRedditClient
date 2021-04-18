@@ -7,8 +7,10 @@ body {
 }
 
 main {
+	width: 100%;
 	margin: 0;
 	padding: 0;
+	overflow-y: hidden;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -77,8 +79,8 @@ button {
 }
 
 article {
-	width: 90vmin;
-	margin: 2vmin auto;
+	width: 85vmin;
+	margin: 5vmin;
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.8);
 	padding: 3vmin;
 	border-radius: 1vmin;
@@ -90,6 +92,8 @@ video {
 	width: 100%;
 	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.8);
 	margin: 0;
+	min-height: 100vmin;
+	max-height: 120vmin;
 }
 
 nav {
@@ -155,3 +159,36 @@ nav a {
 	font-size: 6vmin;
 	margin: auto;
 }
+
+#redditPosts {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	height: 90vh;
+	overflow-y: hidden;
+}
+
+#redditPosts article {
+	scroll-snap-align: start;
+	max-height: 80vh;
+	scroll-snap-align: center;
+}
+
+/* #redditPosts {
+	font-family: sans-serif;
+	scroll-snap-type: x mandatory;
+	display: flex;
+	-webkit-overflow-scrolling: touch;
+	overflow-x: scroll;
+}
+
+
+	border-right: 1px solid white;
+	padding: 1rem;
+	min-width: 100vw;
+	height: 100vh;
+	text-align: center;
+	position: relative;
+} */
