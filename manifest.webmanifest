@@ -1,7 +1,7 @@
 {
 	"background_color": "#fbfaf5",
 	"description": "Personal reddit client that i can customize myself",
-	"display": "fullscreen",
+	"display": "minimal-ui",
 	"icons": [
 		{
 			"src": "image512.png",
