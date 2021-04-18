@@ -171,24 +171,7 @@ nav a {
 }
 
 #redditPosts article {
-	scroll-snap-align: start;
 	max-height: 80vh;
 	scroll-snap-align: center;
+	scroll-snap-stop: always;
 }
-
-/* #redditPosts {
-	font-family: sans-serif;
-	scroll-snap-type: x mandatory;
-	display: flex;
-	-webkit-overflow-scrolling: touch;
-	overflow-x: scroll;
-}
-
-
-	border-right: 1px solid white;
-	padding: 1rem;
-	min-width: 100vw;
-	height: 100vh;
-	text-align: center;
-	position: relative;
-} */

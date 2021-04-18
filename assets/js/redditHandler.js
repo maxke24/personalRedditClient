@@ -13,10 +13,10 @@ async function SearchReddit(ev = null) {
 	if (newReddit.length >= 3) {
 		reddit = [newReddit];
 	}
-	loadReddits(20);
+	loadReddits(10);
 }
 
-async function loadReddits(amount = 10) {
+async function loadReddits(amount = 5) {
 	const err = document.querySelector("#menu #err");
 	err.innerText = "";
 	const subRedditContainer = document.querySelector("#redditPosts");
@@ -95,7 +95,7 @@ function createPosts(posts, subRedditContainer) {
 				const postLayout = `<article id=${post.data.name}>
 				<h1>${post.data.title}</h1>
 				<figure>
-				<img src="${url}" alt="imgur images don't work atm">
+				<img src="${url}" loading="lazy" alt="imgur images don't work atm">
 				</figure>
 				</article>`;
 
