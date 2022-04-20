@@ -161,9 +161,4 @@ nav a {
 #redditPosts {
 	display: flex;
 	flex-wrap: wrap;
-	flex-direction: column;
-	overflow-x: auto;
-	scroll-snap-type: x mandatory;
-	height: 90vh;
-	overflow-y: hidden;
 }

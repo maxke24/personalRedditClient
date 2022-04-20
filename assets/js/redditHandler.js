@@ -8,6 +8,8 @@ async function SearchReddit(ev = null) {
 	if (ev) {
 		ev.preventDefault();
 		document.querySelector("#menu").classList.toggle("show");
+		const overlay = document.querySelector("#overlay");
+		overlay.classList.toggle("blackOverlay");
 	}
 	let newReddit = document.querySelector("#extraSubreddit").value;
 	if (newReddit.length >= 3) {
@@ -28,6 +30,7 @@ async function loadReddits(amount = 5) {
 		document.querySelector("input").value = "";
 	} else {
 		err.innerText = "Subreddit not found!";
+		disableFetch = false;
 		return;
 	}
 
@@ -77,7 +80,7 @@ function createPosts(posts, subRedditContainer) {
 			const postLayout = `<article id=${post.data.name}>
 			<h1>${post.data.title}</h1>
 			<figure>
-			<video autoplay loop mute controls>
+			<video mute controls>
 			<source src="${url}" type=video/mp4>
 			</video>
 			</figure>
@@ -116,6 +119,7 @@ function addSubReddit(ev) {
 	err.innerText = "";
 	if (reddit.indexOf(input) >= 0) {
 		err.innerText = "Reddit already added!";
+		disableFetch = false;
 		return;
 	}
 	if (reddit.length === 1 && reddit[0] === "all") {
