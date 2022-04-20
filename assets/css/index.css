@@ -51,9 +51,10 @@ form.show {
 #buttons,
 #subRedditList {
 	display: flex;
-	flex-direction: row;
-	width: 90%;
-	margin: auto;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+    flex-wrap: wrap;
 }
 
 input,
