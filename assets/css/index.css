@@ -169,9 +169,3 @@ nav a {
 	height: 90vh;
 	overflow-y: hidden;
 }
-
-#redditPosts article {
-	max-height: 80vh;
-	scroll-snap-align: center;
-	scroll-snap-stop: always;
-}
